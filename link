@@ -26,3 +26,24 @@ int main()
     displayList(head);
     return 0;
 }
+void reverseList(struct Node** head) 
+{
+    struct Node *prev = NULL, *current = *head, *next = NULL;
+    while (current != NULL) 
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head = prev;
+}
+void displayList(struct Node* node) 
+{
+    while (node != NULL) 
+    {
+        printf("%d -> ", node->data);
+        node = node->next;
+    }
+    printf("NULL\n");
+}
