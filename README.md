@@ -26,3 +26,18 @@ int main()
     displayList(head);
     return 0;
 }
+void insertAtEnd(struct Node** head, int data) 
+{
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* last = *head;
+    newNode->data = data;
+    newNode->next = NULL;
+    if (*head == NULL) 
+    {
+        *head = newNode;
+        return;
+    }
+    while (last->next != NULL)
+        last = last->next;
+    last->next = newNode;
+}
